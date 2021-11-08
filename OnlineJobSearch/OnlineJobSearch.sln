@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineJob", "OnlineJob\OnlineJob.csproj", "{ADDDF8F8-4B2A-422C-95EE-9FCC13A10BDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADDDF8F8-4B2A-422C-95EE-9FCC13A10BDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDDF8F8-4B2A-422C-95EE-9FCC13A10BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDDF8F8-4B2A-422C-95EE-9FCC13A10BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDDF8F8-4B2A-422C-95EE-9FCC13A10BDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D186118B-20A0-4278-A1DF-62C605A09AA4}
+	EndGlobalSection
+EndGlobal
