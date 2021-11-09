@@ -1,7 +1,7 @@
-﻿@model IEnumerable<OnlineJob.Models.Posting>
+﻿    @model IEnumerable<OnlineJob.Models.Posting>
 
 @{
-    ViewData["Title"] = "Posting Infomation";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PostingID)
+                @Html.DisplayNameFor(model => model.postingID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CompanyName)
@@ -38,7 +38,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PostingID)
+                @Html.DisplayFor(modelItem => item.postingID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompanyName)
@@ -56,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { id=item.postingID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.postingID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.postingID  })
             </td>
         </tr>
 }

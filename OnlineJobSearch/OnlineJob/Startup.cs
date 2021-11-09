@@ -47,7 +47,8 @@ namespace OnlineJob
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Posting}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+               
             });
         }
     }

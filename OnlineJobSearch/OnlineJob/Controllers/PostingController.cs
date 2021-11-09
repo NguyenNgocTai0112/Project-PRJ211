@@ -3,6 +3,7 @@ using OnlineJob.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace OnlineJob.Controllers
@@ -33,30 +34,40 @@ namespace OnlineJob.Controllers
             return View();
 
         }
-        public IActionResult Details(string id = "")
+        public IActionResult Details(string id)
         {
+           
             PostingList pstList = new PostingList();
             List<Posting> obj = pstList.getPosting(id);
             return View(obj.FirstOrDefault());
 
         }
-        public IActionResult Delete(string id = "")
+        public IActionResult Delete(string id="")
         {
-            PostingList pstList = new PostingList();
-            List<Posting> obj = pstList.getPosting(id);
-            return View(obj.FirstOrDefault());
+            if (id.Equals(""))
+            {
+                return NotFound();
+            }
+            else
+            {
+
+                PostingList pstList = new PostingList();
+                List<Posting> obj = pstList.getPosting(id);
+                return View(obj.FirstOrDefault());
+            }
         }
         [HttpPost]
         public IActionResult Delete(Posting pst)
-        {
+        {          
             PostingList pstList = new PostingList();
             pstList.DeletePosting(pst);
             return RedirectToAction("Index");
-        }
-
-
+        } 
 
 
 
     }
+
+    
+   
 }

@@ -10,10 +10,10 @@ namespace OnlineJob.Models
 {
     public class Posting
     {
-        public int PostingID { get; set; }
+        public int postingID { get; set; }
         [Required(ErrorMessage ="Please Enter you Name Company:")]
         [Display(Name ="CompanyName:")]
-        public string CompanyName { get; set; }
+        public string CompanyName { get; set;}
         [Required(ErrorMessage = "Please Enter CategoriesID:")]
         [Display(Name = "CategoriesID:")]
         public int CategoriesID { get; set; }
@@ -25,7 +25,7 @@ namespace OnlineJob.Models
         public string ExperienceRequired { get; set; }
         [Required(ErrorMessage = "Please Enter Location")]
         [Display(Name = "Location:")]
-        public string Location { get; set; }
+        public string Location { get; set;}
     }
     class PostingList
     {
@@ -39,13 +39,13 @@ namespace OnlineJob.Models
         {
             string sql;
             if (string.IsNullOrEmpty(ID))
-            {
+            
                 sql = "Select * From Posting";
-            }
-            else
-            {
-                sql = "Select * From Posting where PostingID="+ID; 
-            }
+
+            else 
+            
+                sql = "Select * From Posting where postingID=" + ID; 
+            
             List<Posting> pst = new List<Posting>();
             DataTable dt = new DataTable();
             String sqlConnectString = db.GetConnectionString();
@@ -54,12 +54,12 @@ namespace OnlineJob.Models
             connection.Open();
             da.Fill(dt);
             da.Dispose();
-            connection.Close();
+            connection.Close(); 
             Posting tmpPst; 
             for(int i=0; i < dt.Rows.Count; i++)
             {
                 tmpPst = new Posting() ;
-                tmpPst.PostingID =Convert.ToInt32(dt.Rows[i]["PostingID"].ToString()) ;
+                tmpPst.postingID = Convert.ToInt32(dt.Rows[i]["postingID"].ToString());
                 tmpPst.CompanyName = dt.Rows[i]["CompanyName"].ToString();
                 tmpPst.CategoriesID = Convert.ToInt32(dt.Rows[i]["CategoriesID"].ToString());
                 tmpPst.Wage = float.Parse(dt.Rows[i]["Wage"].ToString());
@@ -75,8 +75,8 @@ namespace OnlineJob.Models
 
         public void AddPosting(Posting pst)
         {
-            string sql = "Insert into Posting([PostingID],[CompanyName] ,[CategoriesID],[Wage],[Experience required],[Location]) " +
-                "Values("+pst.PostingID+",'"+pst.CompanyName+"',"+pst.CategoriesID+","+pst.Wage+",'"+pst.ExperienceRequired+"','"+pst.Location+"')";
+            string sql = "Insert into Posting([CompanyName] ,[CategoriesID],[Wage],[Experience required],[Location]) " +
+                "Values('"+pst.CompanyName+"',"+pst.CategoriesID+","+pst.Wage+",'"+pst.ExperienceRequired+"','"+pst.Location+"')";
             String sqlConnectString = db.GetConnectionString();
             var connection = new SqlConnection(sqlConnectString);
             SqlCommand cmd = new SqlCommand(sql, connection); 
@@ -88,15 +88,14 @@ namespace OnlineJob.Models
         }
         public void DeletePosting(Posting pst)
         {
-            string sql = "Delete Posting Where PostingID="+pst.PostingID;
+            string sql = "Delete Posting Where postingID= "+ pst.postingID;
             String sqlConnectString = db.GetConnectionString();
             var connection = new SqlConnection(sqlConnectString);
             SqlCommand cmd = new SqlCommand(sql, connection);
-            connection.Open();
+            connection.Open(); 
             cmd.ExecuteNonQuery();
-            cmd.Dispose();
+            cmd.Dispose();  
             connection.Close();
-
 
         }
 
