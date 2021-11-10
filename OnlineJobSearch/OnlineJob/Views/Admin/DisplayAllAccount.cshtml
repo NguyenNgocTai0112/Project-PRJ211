@@ -1,0 +1,55 @@
+﻿@model IEnumerable<OnlineJob.Models.Account>
+
+@{
+    ViewData["Title"] = "Dis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Display All Account</h3>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassWord)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isAdminstrator)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassWord)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isAdminstrator)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+
