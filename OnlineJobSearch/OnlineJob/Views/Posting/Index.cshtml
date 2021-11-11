@@ -1,4 +1,4 @@
-﻿    @model IEnumerable<OnlineJob.Models.Posting>
+﻿@model IEnumerable<OnlineJob.Models.Posting>
 
 @{
     ViewData["Title"] = "Index";
@@ -8,20 +8,20 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="color:aqua">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.postingID)
+                @Html.DisplayNameFor(model => model.PostingID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CompanyName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategoriesID)
-            </th>
+                @Html.DisplayNameFor(model => model.CategoriesName)
+            </th>        
             <th>
                 @Html.DisplayNameFor(model => model.Wage)
             </th>
@@ -31,6 +31,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Location)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberPhone)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -38,14 +47,14 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.postingID)
+                @Html.DisplayFor(modelItem => item.PostingID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoriesID)
-            </td>
+                @Html.DisplayFor(modelItem => item.CategoriesName)
+            </td>         
             <td>
                 @Html.DisplayFor(modelItem => item.Wage)
             </td>
@@ -56,9 +65,18 @@
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.postingID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.postingID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.postingID  })
+                @Html.DisplayFor(modelItem => item.EmployerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberPhone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {@id=item.PostingID},new {@style= "color:aqua" }) |
+                @Html.ActionLink("Details", "Details", new { @id = item.PostingID }, new { @style = "color:aqua" }) |
+                @Html.ActionLink("Delete", "Delete", new { @id = item.PostingID }, new { @style = "color:aqua" })
             </td>
         </tr>
 }

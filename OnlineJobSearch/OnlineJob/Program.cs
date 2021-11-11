@@ -22,5 +22,6 @@ namespace OnlineJob
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }

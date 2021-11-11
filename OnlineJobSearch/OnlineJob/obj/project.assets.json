@@ -5580,11 +5580,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Project Final PRN211\\OnlineJobSearch\\OnlineJob\\OnlineJob.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\CodeInHome\\OnlineJobSearch\\OnlineJob\\OnlineJob.csproj",
       "projectName": "OnlineJob",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\Project Final PRN211\\OnlineJobSearch\\OnlineJob\\OnlineJob.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\CodeInHome\\OnlineJobSearch\\OnlineJob\\OnlineJob.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\Project Final PRN211\\OnlineJobSearch\\OnlineJob\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\CodeInHome\\OnlineJobSearch\\OnlineJob\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5658,7 +5658,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

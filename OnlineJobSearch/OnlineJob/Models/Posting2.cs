@@ -16,7 +16,7 @@ namespace OnlineJob.Models
         public string CompanyName { get; set; }//khoa chinh
         public string CategoriesID { get; set; }//join bang category
         public float Wage { get; set; }
-        
+
         public string Location { get; set; }
         public string ExperienceRequired { get; set; }
 
@@ -81,7 +81,7 @@ namespace OnlineJob.Models
 
 
         }
-
+        
 
     }
 

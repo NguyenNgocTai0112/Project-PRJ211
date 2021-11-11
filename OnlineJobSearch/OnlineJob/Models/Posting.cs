@@ -10,73 +10,132 @@ namespace OnlineJob.Models
 {
     public class Posting
     {
-        public int postingID { get; set; }
-        [Required(ErrorMessage ="Please Enter you Name Company:")]
+        [Required(ErrorMessage ="Please Enter your PostingID")]
+        [Display(Name = "PostingID:")]
+        public int PostingID { get; set; }
+        [Required(ErrorMessage ="Please Enter your Name Company:")]
         [Display(Name ="CompanyName:")]
         public string CompanyName { get; set;}
         [Required(ErrorMessage = "Please Enter CategoriesID:")]
-        [Display(Name = "CategoriesID:")]
-        public int CategoriesID { get; set; }
+        [Display(Name = "CategoriesName:")]
+        public string CategoriesName { get; set; }
+        public string CategoriesID { get; set; }
         [Required(ErrorMessage = "Please Enter Wage:")]
         [Display(Name = "Wage:")]
         public float Wage { get; set; }
+        [Required(ErrorMessage = "Please Enter Location:")]
+        [Display(Name = "Location:")]
+        public string Location { get; set; }
         [Required(ErrorMessage = "Please Enter ExperienceRequired")]
         [Display(Name = "ExperiecnceRequired:")]
         public string ExperienceRequired { get; set; }
-        [Required(ErrorMessage = "Please Enter Location")]
-        [Display(Name = "Location:")]
-        public string Location { get; set;}
+     
+  
+        public string EmployerName { get; set; }
+        public string Gmail { get; set; }
+        public string NumberPhone { get; set; }
+
     }
     class PostingList
     {
-        DBconnection db;
+        private DBconnection db;
 
         public PostingList()
         {
             db = new DBconnection(); 
         }
-        public List<Posting> getPosting(string ID)
+        public List<Posting> GetPosting(string ID)
         {
             string sql;
             if (string.IsNullOrEmpty(ID))
-            
-                sql = "Select * From Posting";
-
-            else 
-            
-                sql = "Select * From Posting where postingID=" + ID; 
-            
+            {
+                sql = "SELECT Posting.PostingID,Posting.CompanyName,Categories.CategoriesLanguage ,Posting.Wage,Posting.Location,Posting.ExperienceRequired,Employer.EmployerName,Employer.Gmail,Employer.NumberPhone FROM Posting JOIN Employer ON Posting.CompanyName= Employer.CompanyName join Categories on Posting.CategoriesID = Categories.CategoriesID";
+            }
+            else
+            {
+                sql = "SELECT  * FROM Posting JOIN Employer ON Posting.CompanyName= Employer.CompanyName join Categories on Posting.CategoriesID = Categories.CategoriesID where PostingID=" + ID;
+            }
             List<Posting> pst = new List<Posting>();
             DataTable dt = new DataTable();
             String sqlConnectString = db.GetConnectionString();
-            var connection = new SqlConnection(sqlConnectString);    
+            var connection = new SqlConnection(sqlConnectString);
             SqlDataAdapter da = new SqlDataAdapter(sql, connection);
             connection.Open();
             da.Fill(dt);
             da.Dispose();
-            connection.Close(); 
-            Posting tmpPst; 
-            for(int i=0; i < dt.Rows.Count; i++)
+            connection.Close();
+            Posting tmpPst;
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                tmpPst = new Posting() ;
-                tmpPst.postingID = Convert.ToInt32(dt.Rows[i]["postingID"].ToString());
+
+
+                tmpPst = new Posting();
+                tmpPst.PostingID = Convert.ToInt32(dt.Rows[i]["PostingID"].ToString());
                 tmpPst.CompanyName = dt.Rows[i]["CompanyName"].ToString();
-                tmpPst.CategoriesID = Convert.ToInt32(dt.Rows[i]["CategoriesID"].ToString());
+                tmpPst.CategoriesName = dt.Rows[i]["CategoriesLanguage"].ToString();
                 tmpPst.Wage = float.Parse(dt.Rows[i]["Wage"].ToString());
-                tmpPst.ExperienceRequired = dt.Rows[i]["Experience required"].ToString();
                 tmpPst.Location = dt.Rows[i]["Location"].ToString();
+                tmpPst.ExperienceRequired = dt.Rows[i]["ExperienceRequired"].ToString();             
+                tmpPst.EmployerName = dt.Rows[i]["EmployerName"].ToString();
+                tmpPst.Gmail = dt.Rows[i]["Gmail"].ToString();
+                tmpPst.NumberPhone = dt.Rows[i]["NumberPhone"].ToString();
+
+
                 pst.Add(tmpPst);
             }
-            
-            return pst ;
+            return pst;
+
+
+        }
+        public List<Posting> GetPostingEdit(string ID)
+        {
+            string sql;
+            if (string.IsNullOrEmpty(ID))
+            {
+                sql = "SELECT Posting.PostingID,Posting.CompanyName,Categories.CategoriesLanguage ,Categories.CategoriesID,Posting.Wage,Posting.Location,Posting.ExperienceRequired,Employer.EmployerName,Employer.Gmail,Employer.NumberPhone FROM Posting JOIN Employer ON Posting.CompanyName= Employer.CompanyName join Categories on Posting.CategoriesID = Categories.CategoriesID";
+            }
+            else
+            {
+                sql = "SELECT Posting.PostingID,Posting.CompanyName,Categories.CategoriesLanguage ,Categories.CategoriesID,Posting.Wage,Posting.Location,Posting.ExperienceRequired,Employer.EmployerName,Employer.Gmail,Employer.NumberPhone  FROM Posting JOIN Employer ON Posting.CompanyName= Employer.CompanyName join Categories on Posting.CategoriesID = Categories.CategoriesID where PostingID=" + ID;
+            }
+            List<Posting> pst = new List<Posting>();
+            DataTable dt = new DataTable();
+            String sqlConnectString = db.GetConnectionString();
+            var connection = new SqlConnection(sqlConnectString);
+            SqlDataAdapter da = new SqlDataAdapter(sql, connection);
+            connection.Open();
+            da.Fill(dt);
+            da.Dispose();
+            connection.Close();
+            Posting tmpPst;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+
+                tmpPst = new Posting();
+                tmpPst.PostingID = Convert.ToInt32(dt.Rows[i]["PostingID"].ToString());
+                tmpPst.CompanyName = dt.Rows[i]["CompanyName"].ToString();  
+                tmpPst.CategoriesID = dt.Rows[i]["CategoriesID"].ToString();
+                tmpPst.Wage = float.Parse(dt.Rows[i]["Wage"].ToString());
+                tmpPst.Location = dt.Rows[i]["Location"].ToString();
+                tmpPst.ExperienceRequired = dt.Rows[i]["ExperienceRequired"].ToString();              
+                tmpPst.EmployerName = dt.Rows[i]["EmployerName"].ToString();
+                tmpPst.Gmail = dt.Rows[i]["Gmail"].ToString();
+                tmpPst.NumberPhone = dt.Rows[i]["NumberPhone"].ToString();
+
+
+                pst.Add(tmpPst);
+            }
+            return pst;
 
 
         }
 
+
         public void AddPosting(Posting pst)
         {
-            string sql = "Insert into Posting([CompanyName] ,[CategoriesID],[Wage],[Experience required],[Location]) " +
-                "Values('"+pst.CompanyName+"',"+pst.CategoriesID+","+pst.Wage+",'"+pst.ExperienceRequired+"','"+pst.Location+"')";
+            string sql = "Insert into Posting([PostingID],[CompanyName] ,[CategoriesID],[Wage],[Location],[ExperienceRequired]) " +
+                "Values('"+pst.PostingID+"','"+pst.CompanyName+"',"+pst.CategoriesID+","+pst.Wage+",'"+pst.Location+ "','" + pst.ExperienceRequired + "')";
             String sqlConnectString = db.GetConnectionString();
             var connection = new SqlConnection(sqlConnectString);
             SqlCommand cmd = new SqlCommand(sql, connection); 
@@ -86,15 +145,27 @@ namespace OnlineJob.Models
             connection.Close(); 
             
         }
-        public void DeletePosting(Posting pst)
+        public void DeletePosting(int ID)
         {
-            string sql = "Delete Posting Where postingID= "+ pst.postingID;
+            string sql = "Delete Posting Where PostingID= "+ID;
             String sqlConnectString = db.GetConnectionString();
             var connection = new SqlConnection(sqlConnectString);
             SqlCommand cmd = new SqlCommand(sql, connection);
             connection.Open(); 
             cmd.ExecuteNonQuery();
             cmd.Dispose();  
+            connection.Close();
+
+        }
+        public void UpdatePosting(Posting pst)
+        {
+            string sql = "Update Posting SET PostingID= N'" + pst.PostingID + "', CategoriesID='" + pst.CategoriesID + "' ,Wage='" + pst.Wage + "',ExperienceRequired='" + pst.ExperienceRequired + "' Where PostingID = "+pst.PostingID;
+            String sqlConnectString = db.GetConnectionString();
+            var connection = new SqlConnection(sqlConnectString);
+            SqlCommand cmd = new SqlCommand(sql, connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
             connection.Close();
 
         }

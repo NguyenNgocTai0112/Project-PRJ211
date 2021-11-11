@@ -12,11 +12,21 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>           
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PostingID" class="control-label"></label>
+                <input asp-for="PostingID" class="form-control" />
+                <span asp-validation-for="PostingID" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="CompanyName" class="control-label"></label>
                 <input asp-for="CompanyName" class="form-control" />
                 <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoriesName" class="control-label"></label>
+                <input asp-for="CategoriesName" class="form-control" />
+                <span asp-validation-for="CategoriesName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoriesID" class="control-label"></label>
@@ -37,6 +47,21 @@
                 <label asp-for="Location" class="control-label"></label>
                 <input asp-for="Location" class="form-control" />
                 <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployerName" class="control-label"></label>
+                <input asp-for="EmployerName" class="form-control" />
+                <span asp-validation-for="EmployerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gmail" class="control-label"></label>
+                <input asp-for="Gmail" class="form-control" />
+                <span asp-validation-for="Gmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberPhone" class="control-label"></label>
+                <input asp-for="NumberPhone" class="form-control" />
+                <span asp-validation-for="NumberPhone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

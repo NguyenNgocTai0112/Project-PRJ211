@@ -52,8 +52,8 @@ namespace OnlineJob.Controllers
 
         public IActionResult AllPosting()
         {
-            Posting2List pst = new Posting2List();
-            List<Posting2> obj = pst.getPosting2(string.Empty);
+            PostingList pst = new PostingList();
+            List<Posting> obj = pst.GetPosting(string.Empty);
             return View(obj);
         }
 
