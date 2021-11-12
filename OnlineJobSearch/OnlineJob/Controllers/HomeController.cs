@@ -20,7 +20,9 @@ namespace OnlineJob.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            PostingList pst = new PostingList();
+            List<Posting> obj = pst.GetPostingbyWage(string.Empty);
+            return View(obj);
         }
 
         public IActionResult Privacy()
@@ -34,5 +36,8 @@ namespace OnlineJob.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+       
+      
     }
 }

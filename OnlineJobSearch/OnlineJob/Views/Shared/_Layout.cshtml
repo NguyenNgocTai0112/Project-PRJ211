@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - OnlineJob</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/css/main.css" rel="stylesheet" />
@@ -36,7 +35,7 @@
                         <div class="col-lg-3 col-md-2">
                             <!-- Logo -->
                             <div class="logo">
-                                <a a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="" alt=""></a>
+                                <a a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="../assets/img/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9">
@@ -46,7 +45,7 @@
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">
                                             <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Find a Jobs </a></li>
+                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Posting" asp-action="Job">Find a Jobs </a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li>
                                                 <a href="#">Page</a>
@@ -78,9 +77,9 @@
         </div>
         <!-- Header End -->
 
-        
+
     </header>
- 
+
     <div id="content">
         @RenderBody()
     </div>
@@ -95,33 +94,41 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    <script src="~/js/site.js"></script>
-    <script src="~/js/custom.js"></script>
-    <script src="~/js/jquery-1.11.0.min.js"></script>
-    <script src="~/js/jquery.nav.js"></script>
-    <script src="~/js/animated.headline.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/contact.js"></script>
-    <script src="~/js/jquery.ajaxchimp.min.js"></script>
-    <script src="~/js/jquery.form.js"></script>
-    <script src="~/js/jquery.magnific-popup.js"></script>
-    <script src="~/js/jquery.nice-select.min.js"></script>
-    <script src="~/js/jquery.paroller.min.js"></script>
-    <script src="~/js/jquery.scrollUp.min.js"></script>
-    <script src="~/js/jquery.slicknav.min.js"></script>
-    <script src="~/js/jquery.sticky.js"></script>
-    <script src="~/js/jquery.validate.min.js"></script>
-    <script src="~/js/mail-script.js"></script>
-    <script src="~/js/main.js"></script>
-    <script src="~/js/one-page-nav-min.js"></script>
-    <script src="~/js/owl.carousel.min.js"></script>
-    <script src="~/js/plugins.js"></script>
-    <script src="~/js/popper.min.js"></script>
-    <script src="~/js/price_rangs.js"></script>
-    <script src="~/js/slick.min.js"></script>
-    <script src="~/js/wow.min.js"></script>
-    <script src="~/js/jquery-1.12.4.min.js"></script>
-    <script src="~/js/modernizr-3.5.0.min.js"></script>
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/price_rangs.js"></script>
+
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/animated.headline.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/mail-script.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+  
 
 </body>
 </html>

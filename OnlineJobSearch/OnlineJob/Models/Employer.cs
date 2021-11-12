@@ -14,6 +14,9 @@ namespace OnlineJob.Models
         private string gmail { get; set; }
         private string numberPhone { get; set; }
 
+        private string Logo { get; set; }
+
+
     }
 
 }
