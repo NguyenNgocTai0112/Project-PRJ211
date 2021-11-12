@@ -28,7 +28,7 @@ namespace OnlineJob.Models
         [Required(ErrorMessage = "Please Enter ExperienceRequired")]
         [Display(Name = "ExperiecnceRequired:")]
         public string ExperienceRequired { get; set; }
-          public int CVID { get; set; }
+        public int CVID { get; set; }
         public string CategoriesName { get; set; }
       
         
@@ -51,11 +51,11 @@ namespace OnlineJob.Models
             string sql;
             if (string.IsNullOrEmpty(ID))
             {
-                sql = "SELECT Posting.PostingID,Posting.CompanyName,Categories.CategoriesLanguage ,Posting.Wage,Posting.Location,Posting.ExperienceRequired,Employer.EmployerName,Employer.Gmail,Employer.NumberPhone FROM Posting JOIN Employer ON Posting.CompanyName= Employer.CompanyName join Categories on Posting.CategoriesID = Categories.CategoriesID";
+                sql = "SELECT Posting.PostingID,Posting.CompanyName,Categories.CategoriesLanguage ,Posting.Wage,Posting.Location,Posting.ExperienceRequired,Employer.EmployerName,Employer.Gmail,Employer.NumberPhone,Employer.Logo FROM Posting JOIN Employer ON Posting.CompanyName= Employer.CompanyName join Categories on Posting.CategoriesID = Categories.CategoriesID";
             }
             else
             {
-                sql = "SELECT  * FROM Posting JOIN Employer ON Posting.CompanyName= Employer.CompanyName join Categories on Posting.CategoriesID = Categories.CategoriesID where PostingID=" + ID;
+                sql = "SELECT Posting.PostingID,Posting.CompanyName,Categories.CategoriesLanguage ,Categories.CategoriesID,Posting.Wage,Posting.Location,Posting.ExperienceRequired,Employer.EmployerName,Employer.Gmail,Employer.NumberPhone,Employer.Logo  FROM Posting JOIN Employer ON Posting.CompanyName= Employer.CompanyName join Categories on Posting.CategoriesID = Categories.CategoriesID where PostingID=" + ID;
             }
             List<Posting> pst = new List<Posting>();
             DataTable dt = new DataTable();
@@ -81,6 +81,7 @@ namespace OnlineJob.Models
                 tmpPst.EmployerName = dt.Rows[i]["EmployerName"].ToString();
                 tmpPst.Gmail = dt.Rows[i]["Gmail"].ToString();
                 tmpPst.NumberPhone = dt.Rows[i]["NumberPhone"].ToString();
+                tmpPst.Logo = dt.Rows[i]["Logo"].ToString();
 
 
                 pst.Add(tmpPst);

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+
 
 <p>
     <a asp-action="Create" style="color:aqua">Create New</a>
@@ -70,8 +70,7 @@
                 @Html.DisplayFor(modelItem => item.NumberPhone)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {@id=item.PostingID},new {@style= "color:aqua" }) |
-                @Html.ActionLink("Details", "Details", new { @id = item.PostingID }, new { @style = "color:aqua" }) |
+                @Html.ActionLink("Edit", "Edit", new {@id=item.PostingID},new {@style= "color:aqua" }) |            
                 @Html.ActionLink("Delete", "Delete", new { @id = item.PostingID }, new { @style = "color:aqua" })
             </td>
         </tr>

@@ -1,12 +1,12 @@
-﻿@model Posting
+﻿@model OnlineJob.Models.Posting
+
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <div class="slider-area ">
-    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="https://technext.github.io/jobfinderportal/assets/img/hero/about.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -43,7 +43,7 @@
                             </ul>
                         </div>
                     </div>
-                   
+
                 </div>
                 <!-- job single End -->
                 <div class="post-details1 mb-50">
@@ -97,8 +97,8 @@
                     <div class="small-section-tittle">
                         <h4>Job Overview</h4>
                     </div>
-                    <ul>                     
-                        <li>Location : <span>@Model.Location</span></li>                       
+                    <ul>
+                        <li>Location : <span>@Model.Location</span></li>
                         <li>Salary :  <span>@Model.Wage</span></li>
                         <li>Application date : <span>@DateTime.Now</span></li>
                     </ul>
@@ -110,11 +110,14 @@
                     <!-- Small Section Tittle -->
                     <div class="small-section-tittle">
                         <h4>Company Information</h4>
-                    </div>                   
+                    </div>
                     <ul>
                         <li>Name: <span>@Model.CompanyName </span></li>
                         <li>Web : <span> @Model.NumberPhone</span></li>
                         <li>Email: <span>@Model.Gmail</span></li>
+                        <li>Location: <span>@Model.Location</span></li>
+                        <li>Wage: <span>@Model.Wage</span></li>
+
                     </ul>
                 </div>
             </div>

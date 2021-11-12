@@ -6,7 +6,7 @@
 }
 
 <div class="slider-area ">
-    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="../assets/img/about.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>  
 <!-- Hero Area End -->
 <!-- Job List Area Start -->
 <div class="job-listing-area pt-120 pb-120">
@@ -51,10 +51,10 @@
                         <div class="select-job-items2">
                             <select name="select">
                                 <option value="">All Category</option>
-                                <option value="">Category 1</option>
-                                <option value="">Category 2</option>
-                                <option value="">Category 3</option>
-                                <option value="">Category 4</option>
+                               @foreach (var item in Model)
+                               {
+                                <option value="">@item.CategoriesName</option>
+                               }
                             </select>
                         </div>
                         <!--  Select job items End-->
@@ -229,7 +229,7 @@
                             <div class="single-job-items mb-30">
                                 <div class="job-items" style=" overflow: hidden; text-overflow: ellipsis;">
                                     <div class="company-img">
-                                        <a href="@Url.Action("Details", "Posting",new{id=item.PostingID})"> <img src="@item.Logo" alt="" style="overflow: hidden; float: left; margin-right: 32 px; z-index: 999; }"></a>
+                                        <a href="@Url.Action("Details", "Posting",new{id=item.PostingID})"> <img src="@item.Logo" alt=""}"></a>
                                     </div>
                                     <div class="job-tittle job-tittle2" style="text-overflow:ellipsis">
                                         <a href="#">
@@ -243,9 +243,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="@Url.Action("Details", "Posting",new{id=item.PostingID})">View Detail</a>
-                                </div>
+                              
                             </div>
 
                         }
