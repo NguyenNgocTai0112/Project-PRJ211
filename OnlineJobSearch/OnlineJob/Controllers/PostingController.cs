@@ -41,6 +41,9 @@ namespace OnlineJob.Controllers
             return View(obj.FirstOrDefault());
 
         }
+
+
+
         public IActionResult Delete(string id = "")
         {
             if (id.Equals(""))
@@ -63,6 +66,11 @@ namespace OnlineJob.Controllers
             pstList.DeletePosting(id);
             return RedirectToAction("Index");
         }
+
+
+
+
+
 
         public IActionResult Edit(string id = "")
         {

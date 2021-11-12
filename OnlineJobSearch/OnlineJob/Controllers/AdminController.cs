@@ -16,12 +16,28 @@ namespace OnlineJob.Controllers
 
 
 
+
+
+
+
         public IActionResult DisplayAllAccount()
         {
             AccountList pst = new AccountList();
             List<Account> obj = pst.getAccount(string.Empty);
             return View(obj);
         }
+
+        public IActionResult DeleteAccount(int id)
+        {
+
+            AccountList pstList = new AccountList();
+            pstList.DeleteAccount(id);
+            return RedirectToAction("DisplayAllAccount");
+        }
+
+
+
+
 
 
         public IActionResult ListUser()
@@ -32,6 +48,16 @@ namespace OnlineJob.Controllers
         }
 
 
+        public IActionResult DeleteAccountUser(int id)
+        {
+
+            AccountUserList pstList = new AccountUserList();
+            pstList.DeleteAccountUser(id);
+            return RedirectToAction("ListUser");
+        }
+
+
+
         public IActionResult ListEmployee()
         {
             AccountEmployerList pst = new AccountEmployerList();
@@ -39,23 +65,20 @@ namespace OnlineJob.Controllers
             return View(obj);
         }
 
-
-
-
-        public IActionResult AllCV()
+        public IActionResult DeleteAccountEmployee(int id)
         {
 
-            CVList pst = new CVList();
-            List<CV> obj = pst.getCV(string.Empty);
-            return View(obj);
+            AccountEmployerList pstList = new AccountEmployerList();
+            pstList.DeleteAccountEmployee(id);
+            return RedirectToAction("ListEmployee");
         }
 
-        public IActionResult AllPosting()
-        {
-            PostingList pst = new PostingList();
-            List<Posting> obj = pst.GetPosting(string.Empty);
-            return View(obj);
-        }
+
+
+
+
+
+
 
 
     }

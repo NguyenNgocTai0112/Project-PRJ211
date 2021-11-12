@@ -24,7 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.isAdminstrator)
             </th>
-            
+             <th>
+                Delete
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -44,6 +46,23 @@
                 @Html.DisplayFor(modelItem => item.isAdminstrator)
             </td>
             
+            
+
+
+
+            <td>      
+
+                
+
+
+                @Html.ActionLink("DeleteAccount", "DeleteAccount", new { @id = item.AccountID }, new { @style = "color:aqua" })
+                
+              
+
+            </td>
+            
+
+
         </tr>
 }
     </tbody>

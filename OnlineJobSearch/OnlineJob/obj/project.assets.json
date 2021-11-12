@@ -5575,19 +5575,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\UpCode\\OnlineJobSearch\\OnlineJob\\OnlineJob.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\ass2\\OnlineJobSearch\\OnlineJob\\OnlineJob.csproj",
       "projectName": "OnlineJob",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\UpCode\\OnlineJobSearch\\OnlineJob\\OnlineJob.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\ass2\\OnlineJobSearch\\OnlineJob\\OnlineJob.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\UpCode\\OnlineJobSearch\\OnlineJob\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\ass2\\OnlineJobSearch\\OnlineJob\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5658,7 +5663,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.2.21505.57\\RuntimeIdentifierGraph.json"
       }
     }
   }

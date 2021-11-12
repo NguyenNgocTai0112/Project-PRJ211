@@ -43,7 +43,9 @@
                 @Html.DisplayNameFor(model => model.YearOfBirth)
             </th>
 
-
+            <th>
+                Delete
+            </th>
 
 
             
@@ -85,6 +87,10 @@
                 @Html.DisplayFor(modelItem => item.YearOfBirth)
             </td>
             
+            <td>          
+                @Html.ActionLink("Delete", "DeleteUser", new { @id = item.AccountID }, new { @style = "color:aqua" })
+            </td>
+
         </tr>
 }
     </tbody>

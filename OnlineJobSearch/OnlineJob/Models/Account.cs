@@ -97,6 +97,21 @@ namespace OnlineJob.Models
         }
 
 
+        public void DeleteAccountEmployee(int ID)
+        {
+            string sql = "Delete Employer Where AcountID= " + ID;
+            String sqlConnectString = db.GetConnectionString();
+            var connection = new SqlConnection(sqlConnectString);
+            SqlCommand cmd = new SqlCommand(sql, connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            connection.Close();
+
+        }
+
+
+
     }
 
 
@@ -149,6 +164,21 @@ namespace OnlineJob.Models
 
         }
 
+        public void DeleteAccountUser(int ID)
+        {
+            string sql = "Delete [User] Where AcountID= " + ID;
+            String sqlConnectString = db.GetConnectionString();
+            var connection = new SqlConnection(sqlConnectString);
+            SqlCommand cmd = new SqlCommand(sql, connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            connection.Close();
+
+        }
+
+
+
 
     }
 
@@ -194,17 +224,18 @@ namespace OnlineJob.Models
         }
 
 
-        //public void DeleteAccount(Account pst)
-        //{
-        //    string sql = "Delete Account Where PostingID=" + pst.AccountID;
-        //    String sqlConnectString = db.GetConnectionString();
-        //    var connection = new SqlConnection(sqlConnectString);
-        //    SqlCommand cmd = new SqlCommand(sql, connection);
-        //    connection.Open();
-        //    cmd.ExecuteNonQuery();
-        //    cmd.Dispose();
-        //    connection.Close();
-        //}
+        public void DeleteAccount(int ID)
+        {
+            string sql = "Delete Account Where AcountID= " + ID;
+            String sqlConnectString = db.GetConnectionString();
+            var connection = new SqlConnection(sqlConnectString);
+            SqlCommand cmd = new SqlCommand(sql, connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            connection.Close();
+
+        }
 
 
 
