@@ -108,6 +108,35 @@ namespace OnlineJob.Controllers
 
 
 
+        public IActionResult ListCV()
+        {
+            CVList pst = new CVList();
+            List<CV> obj = pst.getCV(string.Empty);
+            return View(obj);
+        }
+
+
+        public IActionResult DeleteCV(int id)
+        {
+            try
+            {
+                CVList pstList = new CVList();
+                pstList.DeleteCV(id);
+                return RedirectToAction("ListCV");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+
+        }
+
+
+
+
 
 
 
