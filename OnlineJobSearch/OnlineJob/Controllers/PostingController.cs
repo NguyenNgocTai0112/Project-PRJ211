@@ -44,6 +44,8 @@ namespace OnlineJob.Controllers
 
 
 
+
+
         public IActionResult Delete(string id = "")
         {
             if (id.Equals(""))

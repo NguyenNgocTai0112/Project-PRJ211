@@ -16,10 +16,6 @@ namespace OnlineJob.Controllers
 
 
 
-
-
-
-
         public IActionResult DisplayAllAccount()
         {
             AccountList pst = new AccountList();
@@ -30,9 +26,19 @@ namespace OnlineJob.Controllers
         public IActionResult DeleteAccount(int id)
         {
 
+            try
+            {
             AccountList pstList = new AccountList();
             pstList.DeleteAccount(id);
             return RedirectToAction("DisplayAllAccount");
+            }catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+            
         }
 
 
@@ -50,16 +56,28 @@ namespace OnlineJob.Controllers
 
         public IActionResult DeleteAccountUser(int id)
         {
-
-            AccountUserList pstList = new AccountUserList();
+            try
+            {
+               AccountUserList pstList = new AccountUserList();
             pstList.DeleteAccountUser(id);
             return RedirectToAction("ListUser");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+            
         }
 
 
 
         public IActionResult ListEmployee()
         {
+
+
             AccountEmployerList pst = new AccountEmployerList();
             List<AccountEmployer> obj = pst.getAccountEmployee(string.Empty);
             return View(obj);
@@ -68,9 +86,21 @@ namespace OnlineJob.Controllers
         public IActionResult DeleteAccountEmployee(int id)
         {
 
-            AccountEmployerList pstList = new AccountEmployerList();
+            try
+            {
+                AccountEmployerList pstList = new AccountEmployerList();
             pstList.DeleteAccountEmployee(id);
             return RedirectToAction("ListEmployee");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+
+            
         }
 
 
