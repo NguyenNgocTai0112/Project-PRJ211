@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -42,7 +44,11 @@ namespace OnlineJob
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "assets")),
+                RequestPath = "/assets"
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -50,6 +56,7 @@ namespace OnlineJob
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                
             });
+           
         }
     }
 }

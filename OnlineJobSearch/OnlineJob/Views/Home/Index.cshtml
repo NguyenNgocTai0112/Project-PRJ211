@@ -1,8 +1,159 @@
-﻿@{
+﻿@model IEnumerable<OnlineJob.Models.Posting>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="slider-active">
+        <div class="single-slider slider-height d-flex align-items-center" data-background="../assets/img/h1_hero.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-9 col-md-10">
+                        <div class="hero__caption">
+                            <h1>Find the most exciting startup jobs</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- Search Box -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- form -->
+                        <form action="#" class="search-box">
+                            <div class="input-form">
+                                <input type="text" placeholder="Job Tittle or keyword">
+                            </div>
+                            <div class="select-form">
+                                <div class="select-itms">
+                                    <select name="select" id="select1">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="search-form">
+                                <a href="#">Find job</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!-- Featured_job_start -->
+<section class="featured-job-area feature-padding">
+    <div class="container">
+        <!-- Section Tittle -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-tittle text-center">
+                    <span>Recent Job</span>
+                    <h2>Featured Jobs</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" >
+            <div class="col-xl-10"">
+                <!-- single-job-content -->
+                @foreach (var item in Model)
+                {
+                    <div class="single-job-items mb-30" >
+                        <div class="job-items" style=" overflow: hidden; text-overflow: ellipsis;">
+                            <div class="company-img">
+                                <a href="@Url.Action("Details", "Posting",new{id=item.PostingID})"> <img src="@item.Logo" alt="" style="overflow: hidden; float: left; margin-right: 32 px; z-index: 999; }"></a>
+                            </div>
+                            <div class="job-tittle job-tittle2" style="text-overflow:ellipsis">
+                                <a href="#">
+                                    <h4>@item.CompanyName</h4>
+                                </a>
+                                <ul>
+                                    <li>@item.CategoriesName</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>@item.Location</li>
+                                    <li>@item.Wage</li>
+                                    <li style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;">@item.ExperienceRequired</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="items-link items-link2 f-right" >
+                            <a  href="@Url.Action("Details", "Posting",new{id=item.PostingID})">View Detail</a>                        
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Featured_job_end -->
+
+       
+<!-- Testimonial Start -->
+<div class="testimonial-area testimonial-padding">
+    <div class="container">
+        <!-- Testimonial contents -->
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-10">
+                <div class="h1-testimonial-active dot-style">
+                    <!-- Single Testimonial -->
+                    <div class="single-testimonial text-center">
+                        <!-- Testimonial Content -->
+                        <div class="testimonial-caption ">
+                            <!-- founder -->
+                            <div class="testimonial-founder  ">
+                                <div class="founder-img mb-30">
+                                    <img src="assets/img/testmonial/testimonial-founder.png" alt="">
+                                    <span>Margaret Lawson</span>
+                                    <p>Creative Director</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-top-cap">
+                                <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Testimonial -->
+                    <div class="single-testimonial text-center">
+                        <!-- Testimonial Content -->
+                        <div class="testimonial-caption ">
+                            <!-- founder -->
+                            <div class="testimonial-founder  ">
+                                <div class="founder-img mb-30">
+                                    <img src="assets/img/testmonial/testimonial-founder.png" alt="">
+                                    <span>Margaret Lawson</span>
+                                    <p>Creative Director</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-top-cap">
+                                <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Testimonial -->
+                    <div class="single-testimonial text-center">
+                        <!-- Testimonial Content -->
+                        <div class="testimonial-caption ">
+                            <!-- founder -->
+                            <div class="testimonial-founder  ">
+                                <div class="founder-img mb-30">
+                                    <img src="assets/img/testmonial/testimonial-founder.png" alt="">
+                                    <span>Margaret Lawson</span>
+                                    <p>Creative Director</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-top-cap">
+                                <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

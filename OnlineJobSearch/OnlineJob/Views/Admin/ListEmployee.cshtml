@@ -44,7 +44,9 @@
             
 
 
-
+             <th>
+                Delete
+            </th>
 
             
             <th></th>
@@ -82,6 +84,11 @@
                 @Html.DisplayFor(modelItem => item.NumberPhone)
             </td>
             
+            <td>          
+                @Html.ActionLink("Delete", "DeleteEmployee", new { @id = item.AccountID }, new { @style = "color:aqua" })
+            </td>
+
+
         </tr>
 }
     </tbody>

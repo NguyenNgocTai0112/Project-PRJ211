@@ -23,6 +23,28 @@ namespace OnlineJob.Controllers
             return View(obj);
         }
 
+        public IActionResult DeleteAccount(int id)
+        {
+
+            try
+            {
+            AccountList pstList = new AccountList();
+            pstList.DeleteAccount(id);
+            return RedirectToAction("DisplayAllAccount");
+            }catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+            
+        }
+
+
+
+
+
 
         public IActionResult ListUser()
         {
@@ -32,30 +54,90 @@ namespace OnlineJob.Controllers
         }
 
 
+        public IActionResult DeleteAccountUser(int id)
+        {
+            try
+            {
+               AccountUserList pstList = new AccountUserList();
+            pstList.DeleteAccountUser(id);
+            return RedirectToAction("ListUser");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+            
+        }
+
+
+
         public IActionResult ListEmployee()
         {
+
+
             AccountEmployerList pst = new AccountEmployerList();
             List<AccountEmployer> obj = pst.getAccountEmployee(string.Empty);
             return View(obj);
         }
 
-
-
-
-        public IActionResult AllCV()
+        public IActionResult DeleteAccountEmployee(int id)
         {
 
+            try
+            {
+                AccountEmployerList pstList = new AccountEmployerList();
+            pstList.DeleteAccountEmployee(id);
+            return RedirectToAction("ListEmployee");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+
+            
+        }
+
+
+
+
+
+
+        public IActionResult ListCV()
+        {
             CVList pst = new CVList();
             List<CV> obj = pst.getCV(string.Empty);
             return View(obj);
         }
 
-        public IActionResult AllPosting()
+
+        public IActionResult DeleteCV(int id)
         {
-            Posting2List pst = new Posting2List();
-            List<Posting2> obj = pst.getPosting2(string.Empty);
-            return View(obj);
+            try
+            {
+                CVList pstList = new CVList();
+                pstList.DeleteCV(id);
+                return RedirectToAction("ListCV");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+
         }
+
+
+
+
+
 
 
     }
